@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using TwaCRM.entreprise;
 
 namespace TwaCRM.pool{
 	/**
@@ -35,7 +36,7 @@ namespace TwaCRM.pool{
 		 * @param nom 
 		 * @return
 		 */
-		public Entreprise[] chercher(void nom) {
+		public Entreprise[] chercher(string nom) {
 			// TODO implement here
 			return null;
 		}
@@ -44,18 +45,19 @@ namespace TwaCRM.pool{
 		 * @param Entreprise 
 		 * @return
 		 */
-		public boolean ajouter(void Entreprise) {
+        public bool ajouter(Entreprise entreprise)
+        {
 			// TODO implement here
-			return null;
+            return false;
 		}
 
 		/**
 		 * @param nom 
 		 * @return
 		 */
-		public boolean supprimer(void nom) {
+		public bool supprimer(string nom) {
 			// TODO implement here
-			return null;
+            return false;
 		}
 
 	}

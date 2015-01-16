@@ -29,7 +29,7 @@ namespace TwaCRM.entreprise{
 		/**
 		 * 
 		 */
-		private Integer siret;
+		private int siret;
 
 		/**
 		 * 

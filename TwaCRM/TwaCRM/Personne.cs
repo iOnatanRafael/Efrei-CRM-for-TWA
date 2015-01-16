@@ -29,7 +29,7 @@ namespace TwaCRM{
 		/**
 		 * 
 		 */
-		private Integer telephone;
+		private int telephone;
 
 	}
 }

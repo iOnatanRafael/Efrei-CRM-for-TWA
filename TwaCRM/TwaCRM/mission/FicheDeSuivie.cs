@@ -34,7 +34,7 @@ namespace TwaCRM.mission{
 		/**
 		 * 
 		 */
-		private Date date;
+		private DateTime date;
 
 
 

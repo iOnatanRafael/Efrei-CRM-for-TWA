@@ -3,6 +3,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using TwaCRM.entreprise;
+using TwaCRM.interimaire;
 
 namespace TwaCRM.mission{
 	/**
@@ -19,12 +21,12 @@ namespace TwaCRM.mission{
 		/**
 		 * 
 		 */
-		private Date dateDebut;
+		private DateTime dateDebut;
 
 		/**
 		 * 
 		 */
-		private Date dateFin;
+		private DateTime dateFin;
 
 		/**
 		 * 

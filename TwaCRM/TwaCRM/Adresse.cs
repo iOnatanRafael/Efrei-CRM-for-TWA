@@ -17,14 +17,19 @@ namespace TwaCRM{
 		}
 
 		/**
-		 * 
+		 * Contient la voie de l'adresse (ex.: boulevard Stalingrad)
 		 */
-		private String adresse;
+	    private String voie;
+	    public String Voie
+	    {
+            get { return voie; }
+            set { this.voie = value; }
+	    }
 
 		/**
 		 * 
 		 */
-		private Integer codePostal;
+		private int codePostal;
 
 		/**
 		 * 

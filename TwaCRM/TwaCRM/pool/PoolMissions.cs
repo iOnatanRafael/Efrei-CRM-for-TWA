@@ -3,6 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using TwaCRM.entreprise;
+using TwaCRM.interimaire;
+using TwaCRM.mission;
 
 namespace TwaCRM.pool{
 	/**
@@ -37,7 +40,7 @@ namespace TwaCRM.pool{
 		 * @param Entreprise 
 		 * @return
 		 */
-		public Mission[] getPoolParEntreprise(void Entreprise) {
+		public Mission[] getPoolParEntreprise(Entreprise entreprise) {
 			// TODO implement here
 			return null;
 		}
@@ -46,7 +49,7 @@ namespace TwaCRM.pool{
 		 * @param EmployeInterim 
 		 * @return
 		 */
-		public Mission[] getPoolParEmployeInterim(void EmployeInterim) {
+		public Mission[] getPoolParEmployeInterim(EmployeInterim interimaire) {
 			// TODO implement here
 			return null;
 		}
@@ -55,7 +58,7 @@ namespace TwaCRM.pool{
 		 * @param tache 
 		 * @return
 		 */
-		public Mission[] chercherParTache(void tache) {
+		public Mission[] chercherParTache(String tache) {
 			// TODO implement here
 			return null;
 		}
@@ -64,7 +67,7 @@ namespace TwaCRM.pool{
 		 * @param Date 
 		 * @return
 		 */
-		public Mission[] chercherParDateDebut(void Date) {
+		public Mission[] chercherParDateDebut(DateTime dateDebut) {
 			// TODO implement here
 			return null;
 		}
@@ -73,7 +76,7 @@ namespace TwaCRM.pool{
 		 * @param Date 
 		 * @return
 		 */
-		public Mission[] chercherParDateFin(void Date) {
+		public Mission[] chercherParDateFin(DateTime dateFin) {
 			// TODO implement here
 			return null;
 		}
@@ -82,9 +85,9 @@ namespace TwaCRM.pool{
 		 * @param Mission 
 		 * @return
 		 */
-		public boolean ajouter(void Mission) {
+		public bool ajouter(Mission mission) {
 			// TODO implement here
-			return null;
+            return false;
 		}
 
 	}

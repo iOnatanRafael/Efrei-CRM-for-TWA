@@ -40,9 +40,8 @@ namespace TwaCRM.interimaire{
 		 * @param Competence 
 		 * @return
 		 */
-		public void ajouterCompetence(void Competence) {
+		public void ajouterCompetence(Competence competence) {
 			// TODO implement here
-			return null;
 		}
 
 	}

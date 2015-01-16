@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using TwaCRM.interimaire;
 
 namespace TwaCRM.pool{
 	/**
@@ -36,7 +37,7 @@ namespace TwaCRM.pool{
 		 * @param nom 
 		 * @return
 		 */
-		public EmployeInterim[] chercher(void nom) {
+		public EmployeInterim[] chercher(string nom) {
 			// TODO implement here
 			return null;
 		}
@@ -45,18 +46,18 @@ namespace TwaCRM.pool{
 		 * @param EmployeInterim 
 		 * @return
 		 */
-		public boolean ajouter(void EmployeInterim) {
+		public bool ajouter(EmployeInterim interimaire) {
 			// TODO implement here
-			return null;
+            return false;
 		}
 
 		/**
 		 * @param nom 
 		 * @return
 		 */
-		public boolean supprimer(void nom) {
+		public bool supprimer(string nom) {
 			// TODO implement here
-			return null;
+			return false;
 		}
 
 	}
