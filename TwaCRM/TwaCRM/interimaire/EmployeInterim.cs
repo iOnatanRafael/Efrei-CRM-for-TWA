@@ -13,7 +13,7 @@ namespace TwaCRM.interimaire{
 		/**
 		 * 
 		 */
-		public EmployeInterim() {
+		public EmployeInterim(String nom, String prenom, String telephone) : base(nom, prenom, telephone) {
 		}
 
 		/**
