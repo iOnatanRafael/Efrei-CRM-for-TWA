@@ -6,7 +6,7 @@ using System.Text;
 
 namespace TwaCRM{
 	/**
-	 * 
+	 * La classe Adresse modélise une adresse associée à une entreprise
 	 */
 	public class Adresse {
 

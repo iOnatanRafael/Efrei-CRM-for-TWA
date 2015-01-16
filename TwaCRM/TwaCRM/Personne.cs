@@ -6,19 +6,30 @@ using System.Text;
 
 namespace TwaCRM{
 	/**
-	 * 
+	 * La classe Personne modélise une personne simple
 	 */
 	public class Personne {
 
 		/**
 		 * Constructeur
 		 */
-		public Personne(String nom, String prenom, String telephone)
+        public Personne(String civilite, String nom, String prenom, String telephone)
 		{
+		    Civilite = civilite;
 		    Nom = nom;
 		    Prenom = prenom;
 		    Telephone = telephone;
 		}
+
+        /**
+         * Contient la civilité
+         */
+        private String _civilite;
+        public String Civilite
+        {
+            get { return _civilite; }
+            set { _civilite = value; }
+        }
 
 		/**
 		 * Contient le nom de famille
@@ -50,5 +61,12 @@ namespace TwaCRM{
             set { _telephone = value; }
 	    }
 
+        /**
+         * Surcharge de l'opérateur ToString
+         */
+        public override string ToString()
+        {
+            return Civilite + " " + Prenom + " " + Nom + " | " + Telephone;
+        }
 	}
 }

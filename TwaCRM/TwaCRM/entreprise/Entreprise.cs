@@ -6,39 +6,74 @@ using System.Text;
 
 namespace TwaCRM.entreprise{
 	/**
-	 * 
+	 * La classe Entreprise modélise une entreprise
 	 */
 	public class Entreprise {
 
 		/**
-		 * 
+		 * Constructeur
 		 */
-		public Entreprise() {
+		public Entreprise(String nom, Adresse adresse, int siret, Contact contact)
+		{
+		    Nom = nom;
+		    Adresse = adresse;
+		    Siret = siret;
+		    Contact = contact;
 		}
 
 		/**
-		 * 
+		 * Contient le nom de l'entreprise
 		 */
-		private String nom;
+		private String _nom;
+	    public String Nom
+	    {
+            get { return _nom; }
+            set { _nom = value; }
+	    }
 
 		/**
 		 * 
 		 */
-		private Adresse adresse;
+        private Adresse _adresse;
+        public Adresse Adresse
+        {
+            get { return _adresse; }
+            set { _adresse = value; }
+        }
 
 		/**
 		 * 
 		 */
-		private int siret;
+        private int _siret;
+        public int Siret
+        {
+            get { return _siret; }
+            set
+            {
+                // Vérifier si la longueur du numéro SIRET vaut bien 14
+                if (value.ToString().Length == 14) { _siret = value; }
+            }
+        }
 
 		/**
 		 * 
 		 */
-		private Contact contact;
+        private Contact _contact;
+        public Contact Contact
+        {
+            get { return _contact; }
+            set { _contact = value; }
+        }
 
 
 
-
+        /**
+         * Surcharge de l'opérateur ToString
+         */
+        public override string ToString()
+        {
+            return Nom + " | Adresse : " + Adresse + " | No Siret : " + Siret + " | Contact : " + Contact;
+        }
 
 	}
 }

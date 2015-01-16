@@ -7,7 +7,7 @@ using TwaCRM.pool;
 
 namespace TwaCRM{
 	/**
-	 * 
+	 * La classe TwaCRM représente la classe principale
 	 */
 	public class TwaCRM {
 
