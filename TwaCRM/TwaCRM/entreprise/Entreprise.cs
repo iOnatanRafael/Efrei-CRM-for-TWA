@@ -13,7 +13,7 @@ namespace TwaCRM.entreprise{
 		/**
 		 * Constructeur
 		 */
-		public Entreprise(String nom, Adresse adresse, int siret, Contact contact)
+		public Entreprise(String nom, Adresse adresse, long siret, Contact contact)
 		{
 		    Nom = nom;
 		    Adresse = adresse;
@@ -44,8 +44,8 @@ namespace TwaCRM.entreprise{
 		/**
 		 * 
 		 */
-        private int _siret;
-        public int Siret
+        private long _siret;
+        public long Siret
         {
             get { return _siret; }
             set

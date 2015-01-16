@@ -1,6 +1,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using TwaCRM.entreprise;
@@ -9,38 +10,40 @@ using TwaCRM.mission;
 
 namespace TwaCRM.pool{
 	/**
-	 * 
+	 * La classe PoolMissions modélise la liste des missions
 	 */
 	public class PoolMissions {
 
 		/**
-		 * 
+		 * Constructeur
 		 */
 		public PoolMissions() {
 		}
 
 		/**
-		 * 
+		 * Contient la liste des missions
 		 */
-		private Mission[] missions;
-
-
-
-
+		private List<Mission> _missions;
+        public List<Mission> Missions
+	    {
+            get { return _missions; }
+            set { _missions = value; }
+	    }
 
 		/**
 		 * @return
 		 */
-		public Mission[] getPool() {
-			// TODO implement here
-			return null;
+        public List<Mission> getPool()
+        {
+			return Missions;
 		}
 
 		/**
 		 * @param Entreprise 
 		 * @return
 		 */
-		public Mission[] getPoolParEntreprise(Entreprise entreprise) {
+        public List<Mission> getPoolParEntreprise(Entreprise entreprise)
+        {
 			// TODO implement here
 			return null;
 		}
@@ -49,7 +52,8 @@ namespace TwaCRM.pool{
 		 * @param EmployeInterim 
 		 * @return
 		 */
-		public Mission[] getPoolParEmployeInterim(EmployeInterim interimaire) {
+        public List<Mission> getPoolParEmployeInterim(EmployeInterim interimaire)
+        {
 			// TODO implement here
 			return null;
 		}
@@ -58,7 +62,8 @@ namespace TwaCRM.pool{
 		 * @param tache 
 		 * @return
 		 */
-		public Mission[] chercherParTache(String tache) {
+        public List<Mission> chercherParTache(String tache)
+        {
 			// TODO implement here
 			return null;
 		}
@@ -67,7 +72,8 @@ namespace TwaCRM.pool{
 		 * @param Date 
 		 * @return
 		 */
-		public Mission[] chercherParDateDebut(DateTime dateDebut) {
+        public List<Mission> chercherParDateDebut(DateTime dateDebut)
+        {
 			// TODO implement here
 			return null;
 		}
@@ -76,7 +82,8 @@ namespace TwaCRM.pool{
 		 * @param Date 
 		 * @return
 		 */
-		public Mission[] chercherParDateFin(DateTime dateFin) {
+        public List<Mission> chercherParDateFin(DateTime dateFin)
+        {
 			// TODO implement here
 			return null;
 		}

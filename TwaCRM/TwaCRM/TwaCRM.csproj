@@ -64,7 +64,7 @@
     <Compile Include="pool\PoolFichesDeSuivie.cs" />
     <Compile Include="pool\PoolInterimaires.cs" />
     <Compile Include="pool\PoolMissions.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="MainClass.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TwaCRM.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">

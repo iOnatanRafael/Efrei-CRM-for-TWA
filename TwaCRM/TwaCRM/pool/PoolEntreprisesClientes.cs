@@ -7,53 +7,65 @@ using TwaCRM.entreprise;
 
 namespace TwaCRM.pool{
 	/**
-	 * 
+	 * La classe PoolEntreprisesClientes modélise la liste des entreprises clientes
 	 */
 	public class PoolEntreprisesClientes {
 
 		/**
-		 * 
+		 * Constructeur
 		 */
 		public PoolEntreprisesClientes() {
+            EntreprisesClientes = new List<Entreprise>();
 		}
 
 		/**
-		 * 
+		 * Contient la liste des entreprises clientes
 		 */
-		private Entreprise[] entreprisesClientes;
+        private List<Entreprise> _entreprisesClientes;
+	    public List<Entreprise> EntreprisesClientes
+	    {
+            get { return _entreprisesClientes; }
+            set { _entreprisesClientes = value; }
+	    }
 
 
 
 		/**
-		 * @return
+		 * @return la liste des entreprises clientes
 		 */
-		public Entreprise[] getPool() {
-			// TODO implement here
-			return null;
+        public List<Entreprise> getPool()
+        {
+			return EntreprisesClientes;
 		}
 
 		/**
 		 * @param nom 
-		 * @return
+		 * @return la liste des entreprises portant le nom "nom"
 		 */
-		public Entreprise[] chercher(string nom) {
+        public List<Entreprise> chercher(string nom)
+        {
 			// TODO implement here
 			return null;
 		}
 
-		/**
-		 * @param Entreprise 
-		 * @return
-		 */
+        /**
+         * @param Entreprise 
+         * @return true si l'ajout a réussi, sinon false
+         */
         public bool ajouter(Entreprise entreprise)
         {
-			// TODO implement here
+            if (entreprise != null)
+            {
+                EntreprisesClientes.Add(entreprise);
+                return true;
+            }
+
             return false;
 		}
 
 		/**
 		 * @param nom 
-		 * @return
+		 * @return true si la suppression a réussi, sinon false
 		 */
 		public bool supprimer(string nom) {
 			// TODO implement here

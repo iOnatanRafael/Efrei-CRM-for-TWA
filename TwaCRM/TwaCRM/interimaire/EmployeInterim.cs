@@ -14,7 +14,7 @@ namespace TwaCRM.interimaire{
 		/**
 		 * Constructeur
 		 */
-        public EmployeInterim(String civilite, String nom, String prenom, String telephone, DataTable competences, Double tarifJournalierFixe, Double tarifJournalierVariable)
+        public EmployeInterim(String civilite, String nom, String prenom, String telephone, List<Competence> competences, Double tarifJournalierFixe, Double tarifJournalierVariable)
             : base(civilite, nom, prenom, telephone)
 		{
 		    Competences = competences;
@@ -25,8 +25,8 @@ namespace TwaCRM.interimaire{
 		/**
 		 * Contient la liste des compétences de l'intérimaire
 		 */
-		private DataTable _competences;
-	    public DataTable Competences
+		private List<Competence> _competences;
+        public List<Competence> Competences
 	    {
             get { return _competences; }
             set { _competences = value; }
@@ -56,18 +56,20 @@ namespace TwaCRM.interimaire{
             }
         }
 
-
-
-
-
-
 		/**
 		 * @param Competence 
-		 * @return
+		 * @return true si l'ajout a réussi, sinon false
 		 */
-		public void ajouterCompetence(Competence competence) {
-			// TODO implement here
-		}
+		public bool ajouterCompetence(Competence competence)
+        {
+		    if (competence != null && competence.Categorie.Length > 0 && competence.Nom.Length > 0)
+		    {
+		        Competences.Add(competence);
+		        return true;
+		    }
+
+		    return false;
+        }
 
         /**
          * Surcharge de l'opérateur ToString

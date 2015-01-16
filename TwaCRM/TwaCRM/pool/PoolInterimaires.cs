@@ -20,7 +20,7 @@ namespace TwaCRM.pool{
 		/**
 		 * 
 		 */
-		private EmployeInterim[] employesInterim;
+        private List<EmployeInterim> employesInterim;
 
 
 
@@ -28,7 +28,8 @@ namespace TwaCRM.pool{
 		/**
 		 * @return
 		 */
-		public EmployeInterim[] getPool() {
+        public List<EmployeInterim> getPool()
+        {
 			// TODO implement here
 			return null;
 		}
@@ -37,7 +38,8 @@ namespace TwaCRM.pool{
 		 * @param nom 
 		 * @return
 		 */
-		public EmployeInterim[] chercher(string nom) {
+        public List<EmployeInterim> chercher(String nom)
+        {
 			// TODO implement here
 			return null;
 		}
@@ -55,7 +57,7 @@ namespace TwaCRM.pool{
 		 * @param nom 
 		 * @return
 		 */
-		public bool supprimer(string nom) {
+		public bool supprimer(String nom) {
 			// TODO implement here
 			return false;
 		}

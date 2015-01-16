@@ -20,14 +20,15 @@ namespace TwaCRM.pool{
 		/**
 		 * 
 		 */
-		private Facture[] factures;
+        private List<Facture> factures;
 
 
 
 		/**
 		 * @return
 		 */
-		public Facture[] getPool() {
+        public List<Facture> getPool()
+        {
 			// TODO implement here
 			return null;
 		}

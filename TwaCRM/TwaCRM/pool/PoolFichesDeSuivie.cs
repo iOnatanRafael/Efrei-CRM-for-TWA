@@ -20,14 +20,15 @@ namespace TwaCRM.pool{
 		/**
 		 * 
 		 */
-		private FicheDeSuivie[] fichesDeSuivie;
+		private List<FicheDeSuivie> fichesDeSuivie;
 
 
 
 		/**
 		 * @return
 		 */
-		public FicheDeSuivie[] getPool() {
+        public List<FicheDeSuivie> getPool()
+        {
 			// TODO implement here
 			return null;
 		}
