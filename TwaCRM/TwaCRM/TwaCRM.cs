@@ -41,10 +41,5 @@ namespace TwaCRM{
 		 */
 		private PoolFichesDeSuivie poolFichesDeSuivie;
 
-
-
-
-
-
 	}
 }
