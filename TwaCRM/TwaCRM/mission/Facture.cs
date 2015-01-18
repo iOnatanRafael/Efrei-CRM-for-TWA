@@ -16,8 +16,6 @@ namespace TwaCRM.mission{
          */
         public Facture()
         {
-            _uniqueId = _counter;
-            _counter++;
         }
 
 		/**
@@ -25,25 +23,8 @@ namespace TwaCRM.mission{
 		 */
 		public Facture(int prixTotal)
         {
-            _uniqueId = _counter;
-            _counter++;
-
-		    PrixTotal = prixTotal;
+            PrixTotal = prixTotal;
 		}
-
-        private static int _counter = 0;
-
-        /**
-         * Contient l'id unique
-         */
-        private int _uniqueId;
-
-        [XmlAttribute("id")]
-        public int UniqueId
-        {
-            get { return _uniqueId; }
-            set { _uniqueId = value; }
-        }
 
 		/**
 		 * Contient le prix total de la facture

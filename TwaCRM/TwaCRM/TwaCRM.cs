@@ -22,19 +22,9 @@ namespace TwaCRM{
             PoolInterimaires = new PoolInterimaires();
             PoolMissions = new PoolMissions();
 
-            firstInit();
-
             PoolEntreprisesClientes.chargerXml(@"PoolEntreprisesClientes.xml");
             PoolInterimaires.chargerXml(@"PoolInterimaires.xml");
             PoolMissions.chargerXml(@"PoolMissions.xml");
-
-		    int cpt = 0;
-            foreach (Mission mission in PoolMissions.getPoolParEntreprise(PoolEntreprisesClientes.EntreprisesClientes[0]))
-		    {
-                Console.WriteLine(cpt.ToString() + ". " + mission);
-		        cpt++;
-		    }
-
 		}
 
 		/**
@@ -407,7 +397,7 @@ namespace TwaCRM{
                     "Nettoyage des locaux",
                     PoolEntreprisesClientes.EntreprisesClientes[0],
                     PoolInterimaires.Interimaires[0],
-                    new FicheDeSuivie(0.0, 0.0, new DateTime()),
+                    new FicheDeSuivie(12.0, 50.0, new DateTime()),
                     new Facture()
                     )
                 );
@@ -431,7 +421,7 @@ namespace TwaCRM{
                     "Trier les dossiers",
                     PoolEntreprisesClientes.EntreprisesClientes[2],
                     PoolInterimaires.Interimaires[2],
-                    new FicheDeSuivie(0.0, 0.0, new DateTime()),
+                    new FicheDeSuivie(80.0, 5.0, new DateTime()),
                     new Facture()
                     )
                 );

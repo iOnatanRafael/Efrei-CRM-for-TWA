@@ -71,7 +71,7 @@ namespace TwaCRM.pool{
 
         /**
          * @param periodeDebut, periodeFin 
-         * @return la liste des missions associées à l'intérimaire `interimaire`
+         * @return la liste des missions situées dans la période spécifiée
          */
         public List<Mission> getPoolParPeriode(DateTime periodeDebut, DateTime periodeFin)
         {
@@ -79,6 +79,19 @@ namespace TwaCRM.pool{
                 from mission in Missions
                 where mission.DateDebut.CompareTo(periodeDebut) >= 0 && mission.DateFin.CompareTo(periodeDebut) >= 0 &&
                         mission.DateDebut.CompareTo(periodeFin) <= 0 && mission.DateFin.CompareTo(periodeFin) <= 0
+                select mission;
+
+            return filteredQuery.ToList();
+        }
+
+        /**
+         * @return la liste des missions dont le risque de retard dépasse les 25%
+         */
+        public List<Mission> getPoolRisk25()
+        {
+            IEnumerable<Mission> filteredQuery =
+                from mission in Missions
+                where mission.FicheDeSuivie.RisqueDeRetard > 25.0
                 select mission;
 
             return filteredQuery.ToList();

@@ -16,8 +16,6 @@ namespace TwaCRM.mission{
          */
         public FicheDeSuivie()
         {
-            _uniqueId = _counter;
-            _counter++;
         }
 
 		/**
@@ -25,27 +23,10 @@ namespace TwaCRM.mission{
 		 */
 		public FicheDeSuivie(Double avancement, Double risqueDeRetard, DateTime date)
         {
-            _uniqueId = _counter;
-            _counter++;
-
 		    Avancement = avancement;
 		    RisqueDeRetard = risqueDeRetard;
 		    Date = date;
 		}
-
-        private static int _counter = 0;
-
-        /**
-         * Contient l'id unique
-         */
-        private int _uniqueId;
-
-        [XmlAttribute("id")]
-        public int UniqueId
-        {
-            get { return _uniqueId; }
-            set { _uniqueId = value; }
-        }
 
 		/**
 		 * Contient le pourcentage d'avancement
