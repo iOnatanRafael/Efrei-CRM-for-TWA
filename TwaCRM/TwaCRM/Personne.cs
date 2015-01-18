@@ -10,6 +10,13 @@ namespace TwaCRM{
 	 */
 	public class Personne {
 
+        /**
+         * Constructeur par défaut
+         */
+        public Personne()
+        {
+        }
+
 		/**
 		 * Constructeur
 		 */

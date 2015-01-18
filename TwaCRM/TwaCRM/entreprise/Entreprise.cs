@@ -3,12 +3,24 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Xml.Serialization;
 
 namespace TwaCRM.entreprise{
 	/**
 	 * La classe Entreprise modélise une entreprise
 	 */
 	public class Entreprise {
+
+        /**
+         * Constructeur par défaut
+         */
+        public Entreprise()
+        {
+            Nom = null;
+            Adresse = null;
+            Siret = -1;
+            Contact = null;
+        }
 
 		/**
 		 * Constructeur
@@ -51,7 +63,14 @@ namespace TwaCRM.entreprise{
             set
             {
                 // Vérifier si la longueur du numéro SIRET vaut bien 14
-                if (value.ToString().Length == 14) { _siret = value; }
+                if (value.ToString().Length == 14)
+                {
+                    _siret = value;
+                }
+                else
+                {
+                    _siret = -1;
+                }
             }
         }
 

@@ -10,6 +10,13 @@ namespace TwaCRM.interimaire{
 	 * La classe EmployeInterim modélise un intérimaire
 	 */
 	public class EmployeInterim : Personne {
+        
+        /**
+         * Constructeur par défaut
+         */
+        public EmployeInterim()
+        {
+        }
 
 		/**
 		 * Constructeur

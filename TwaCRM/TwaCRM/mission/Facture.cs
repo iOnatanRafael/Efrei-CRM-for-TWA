@@ -9,6 +9,13 @@ namespace TwaCRM.mission{
 	 * La classe Facture modélise une facture associée à une mission d'une entreprise attribué à un intérimaire.
 	 */
 	public class Facture {
+        
+        /**
+         * Constructeur par défaut
+         */
+        public Facture()
+        {
+        }
 
 		/**
 		 * Constructeur

@@ -10,6 +10,13 @@ namespace TwaCRM{
 	 */
 	public class Adresse {
 
+        /**
+         * Constructeur par défaut
+         */
+        public Adresse()
+        {
+        }
+
 		/**
          * Constructeur
          */

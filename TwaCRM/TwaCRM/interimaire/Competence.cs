@@ -10,6 +10,13 @@ namespace TwaCRM.interimaire{
 	 */
 	public class Competence {
 
+        /**
+         * Constructeur par défaut
+         */
+        public Competence()
+        {
+        }
+
 		/**
 		 * Constructeur
 		 */

@@ -9,6 +9,13 @@ namespace TwaCRM.mission{
 	 * La classe FicheDeSuivie modélise une fiche de suivie associée à une mission
 	 */
 	public class FicheDeSuivie {
+        
+        /**
+         * Constructeur par défaut
+         */
+        public FicheDeSuivie()
+        {
+        }
 
 		/**
 		 * Constructeur

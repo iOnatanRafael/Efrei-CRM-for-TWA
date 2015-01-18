@@ -11,6 +11,13 @@ namespace TwaCRM.mission{
 	 * La classe Mission modélise une mission créee par une entreprise et qui peut être attribué à un intérimaire
 	 */
 	public class Mission {
+        
+        /**
+         * Constructeur par défaut
+         */
+        public Mission()
+        {
+        }
 
 		/**
 		 * Constructeur
