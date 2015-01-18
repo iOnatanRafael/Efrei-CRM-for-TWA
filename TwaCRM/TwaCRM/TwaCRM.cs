@@ -12,15 +12,15 @@ namespace TwaCRM{
 	/**
 	 * La classe TwaCRM représente la classe principale
 	 */
-	public class TwaCRM {
+	public class TwaCrm {
 
 		/**
 		 * Constructeur
 		 */
-		public TwaCRM() {
-            PoolEntreprisesClientes = new PoolEntreprisesClientes();
-            PoolInterimaires = new PoolInterimaires();
-            PoolMissions = new PoolMissions();
+		public TwaCrm() {
+            TwaCrm.PoolEntreprisesClientes = new PoolEntreprisesClientes();
+            TwaCrm.PoolInterimaires = new PoolInterimaires();
+            TwaCrm.PoolMissions = new PoolMissions();
 
             PoolEntreprisesClientes.chargerXml(@"PoolEntreprisesClientes.xml");
             PoolInterimaires.chargerXml(@"PoolInterimaires.xml");
@@ -30,8 +30,8 @@ namespace TwaCRM{
 		/**
 		 * Contient la liste des entreprises clientes
 		 */
-		private PoolEntreprisesClientes _poolEntreprisesClientes;
-	    public PoolEntreprisesClientes PoolEntreprisesClientes
+		private static PoolEntreprisesClientes _poolEntreprisesClientes;
+        public static PoolEntreprisesClientes PoolEntreprisesClientes
 	    {
             get { return _poolEntreprisesClientes; }
             set { _poolEntreprisesClientes = value; }
@@ -40,8 +40,8 @@ namespace TwaCRM{
 		/**
 		 * Contient la liste des intérimaires
 		 */
-        private PoolInterimaires _poolInterimaires;
-        public PoolInterimaires PoolInterimaires
+        private static PoolInterimaires _poolInterimaires;
+        public static PoolInterimaires PoolInterimaires
         {
             get { return _poolInterimaires; }
             set { _poolInterimaires = value; }
@@ -50,30 +50,40 @@ namespace TwaCRM{
 		/**
 		 * Contient la liste des missions
 		 */
-        private PoolMissions _poolMissions;
-        public PoolMissions PoolMissions
+        private static PoolMissions _poolMissions;
+        public static PoolMissions PoolMissions
         {
             get { return _poolMissions; }
             set { _poolMissions = value; }
         }
 
+        /**
+         * La méthode firstInit permet de peupler la base de données de l'application
+         */
+	    public static void sauvegarderPools()
+	    {
+	        TwaCrm.PoolEntreprisesClientes.sauvegarderXml(@"PoolsEntreprisesClientes.xml");
+	        TwaCrm.PoolInterimaires.sauvegarderXml(@"PoolsInterimaires.xml");
+	        TwaCrm.PoolMissions.sauvegarderXml(@"PoolsMissions.xml");
+	    }
+
 
         /**
          * La méthode firstInit permet de peupler la base de données de l'application
          */
-        public void firstInit()
+        public static void firstInit()
 	    {
-	        firstInitPoolEntreprisesClientes(@"PoolEntreprisesClientes.xml");
-            firstInitPoolInterimaires(@"PoolInterimaires.xml");
-            firstInitPoolMissions(@"PoolMissions.xml");
+	        TwaCrm.firstInitPoolEntreprisesClientes(@"PoolEntreprisesClientes.xml");
+            TwaCrm.firstInitPoolInterimaires(@"PoolInterimaires.xml");
+            TwaCrm.firstInitPoolMissions(@"PoolMissions.xml");
 	    }
 
         /**
          * La méthode firstInitPoolEntreprises permet de créer 10 entreprises
          */
-        public void firstInitPoolEntreprisesClientes(String nomFichier)
+        public static void firstInitPoolEntreprisesClientes(String nomFichier)
         {
-            PoolEntreprisesClientes.ajouter(
+            TwaCrm.PoolEntreprisesClientes.ajouter(
                 new Entreprise("Baidu",
                     new Adresse("60", "avenue de la République", "75007", "Paris", "France"),
                     79900069000013,
@@ -81,7 +91,7 @@ namespace TwaCRM{
                     )
                 );
 
-            PoolEntreprisesClientes.ajouter(
+            TwaCrm.PoolEntreprisesClientes.ajouter(
                 new Entreprise("Microsoft",
                     new Adresse("24", "rue de la Liberté", "94800", "Villejuif", "France"),
                     50850302600017,
@@ -89,7 +99,7 @@ namespace TwaCRM{
                     )
                 );
 
-            PoolEntreprisesClientes.ajouter(
+            TwaCrm.PoolEntreprisesClientes.ajouter(
                 new Entreprise("MK Import & Co",
                     new Adresse("1-2", "boulevard du Général de Gaulle", "59100", "Roubaix", "France"),
                     48956423400016,
@@ -97,7 +107,7 @@ namespace TwaCRM{
                     )
                 );
 
-            PoolEntreprisesClientes.ajouter(
+            TwaCrm.PoolEntreprisesClientes.ajouter(
                 new Entreprise("Confocuisine",
                     new Adresse("2", "Avenue des Ducs de Savoie", "73000", "Chambery", "France"),
                     31643141000034,
@@ -105,7 +115,7 @@ namespace TwaCRM{
                     )
                 );
 
-            PoolEntreprisesClientes.ajouter(
+            TwaCrm.PoolEntreprisesClientes.ajouter(
                 new Entreprise("CPW Labs",
                     new Adresse("88", "boulevard de Verratti", "75016", "Paris", "France"),
                     75202345700019,
@@ -113,7 +123,7 @@ namespace TwaCRM{
                     )
                 );
 
-            PoolEntreprisesClientes.ajouter(
+            TwaCrm.PoolEntreprisesClientes.ajouter(
                 new Entreprise("Vougy",
                     new Adresse("39", "Domaine des Cedres", "69390", "Vernaison", "France"),
                     44483571400015,
@@ -121,7 +131,7 @@ namespace TwaCRM{
                     )
                 );
 
-            PoolEntreprisesClientes.ajouter(
+            TwaCrm.PoolEntreprisesClientes.ajouter(
                 new Entreprise("ABC Douceur",
                     new Adresse("3", "Place Nicole Neuburger", "93140", "Bondy", "France"),
                     51426412600012,
@@ -129,7 +139,7 @@ namespace TwaCRM{
                     )
                 );
 
-            PoolEntreprisesClientes.ajouter(
+            TwaCrm.PoolEntreprisesClientes.ajouter(
                 new Entreprise("Vougy",
                     new Adresse("39", "Domaine des Cedres", "69390", "Vernaison", "France"),
                     44483571400015,
@@ -137,7 +147,7 @@ namespace TwaCRM{
                     )
                 );
 
-            PoolEntreprisesClientes.ajouter(
+            TwaCrm.PoolEntreprisesClientes.ajouter(
                 new Entreprise("Marcel SARL",
                     new Adresse("2", "Allée des Erables", "95360", "Montmagny", "France"),
                     44802963700023,
@@ -145,7 +155,7 @@ namespace TwaCRM{
                     )
                 );
 
-            PoolEntreprisesClientes.ajouter(
+            TwaCrm.PoolEntreprisesClientes.ajouter(
                 new Entreprise("Zlataneur SA",
                     new Adresse("10", "Domaine d'Ibrahimovic", "75016", "Paris", "France"),
                     52316479600014,
@@ -153,15 +163,15 @@ namespace TwaCRM{
                     )
                 );
 
-            PoolEntreprisesClientes.sauvegarderXml(nomFichier);
+            TwaCrm.PoolEntreprisesClientes.sauvegarderXml(nomFichier);
         }
 
         /**
          * La méthode firstInitPoolInterimaires permet de créer 15 intérimaires
          */
-        public void firstInitPoolInterimaires(String nomFichier)
+        public static void firstInitPoolInterimaires(String nomFichier)
         {
-            PoolInterimaires.ajouter(
+            TwaCrm.PoolInterimaires.ajouter(
                 new EmployeInterim("M",
                     "Atsuda",
                     "Konaté",
@@ -176,7 +186,7 @@ namespace TwaCRM{
                     )
                 );
 
-            PoolInterimaires.ajouter(
+            TwaCrm.PoolInterimaires.ajouter(
                 new EmployeInterim("M",
                     "Aubameyang",
                     "Pierre-Emerick",
@@ -192,7 +202,7 @@ namespace TwaCRM{
                     )
                 );
 
-            PoolInterimaires.ajouter(
+            TwaCrm.PoolInterimaires.ajouter(
                 new EmployeInterim("M",
                     "Sarkozy",
                     "Nicolas",
@@ -208,7 +218,7 @@ namespace TwaCRM{
                     )
                 );
 
-            PoolInterimaires.ajouter(
+            TwaCrm.PoolInterimaires.ajouter(
                 new EmployeInterim("M",
                     "Jacob",
                     "Pierre",
@@ -222,7 +232,7 @@ namespace TwaCRM{
                     )
                 );
 
-            PoolInterimaires.ajouter(
+            TwaCrm.PoolInterimaires.ajouter(
                 new EmployeInterim("Mme",
                     "Kardashian",
                     "Kim",
@@ -233,7 +243,7 @@ namespace TwaCRM{
                     )
                 );
 
-            PoolInterimaires.ajouter(
+            TwaCrm.PoolInterimaires.ajouter(
                 new EmployeInterim("Mlle",
                     "Frantz",
                     "Vanessa",
@@ -248,7 +258,7 @@ namespace TwaCRM{
                     )
                 );
 
-            PoolInterimaires.ajouter(
+            TwaCrm.PoolInterimaires.ajouter(
                 new EmployeInterim("M",
                     "Big Ali",
                     "Amine",
@@ -263,7 +273,7 @@ namespace TwaCRM{
                     )
                 );
 
-            PoolInterimaires.ajouter(
+            TwaCrm.PoolInterimaires.ajouter(
                 new EmployeInterim("M",
                     "Jobs",
                     "Steve",
@@ -279,9 +289,7 @@ namespace TwaCRM{
                     )
                 );
 
-            /***/
-
-            PoolInterimaires.ajouter(
+            TwaCrm.PoolInterimaires.ajouter(
                 new EmployeInterim("Mlle",
                     "Gorz",
                     "Gabrielle",
@@ -296,7 +304,7 @@ namespace TwaCRM{
                     )
                 );
 
-            PoolInterimaires.ajouter(
+            TwaCrm.PoolInterimaires.ajouter(
                 new EmployeInterim("M",
                     "Dubosc",
                     "Franck",
@@ -310,7 +318,7 @@ namespace TwaCRM{
                     )
                 );
 
-            PoolInterimaires.ajouter(
+            TwaCrm.PoolInterimaires.ajouter(
                 new EmployeInterim("M",
                     "Riolo",
                     "Daniel",
@@ -321,7 +329,7 @@ namespace TwaCRM{
                     )
                 );
 
-            PoolInterimaires.ajouter(
+            TwaCrm.PoolInterimaires.ajouter(
                 new EmployeInterim("M",
                     "Herbunot",
                     "Killian",
@@ -337,7 +345,7 @@ namespace TwaCRM{
                     )
                 );
 
-            PoolInterimaires.ajouter(
+            TwaCrm.PoolInterimaires.ajouter(
                 new EmployeInterim("M",
                     "Bailley",
                     "Mike",
@@ -352,7 +360,7 @@ namespace TwaCRM{
                     )
                 );
 
-            PoolInterimaires.ajouter(
+            TwaCrm.PoolInterimaires.ajouter(
                 new EmployeInterim("Mme",
                     "Sheyti",
                     "Carole",
@@ -368,7 +376,7 @@ namespace TwaCRM{
                     )
                 );
 
-            PoolInterimaires.ajouter(
+            TwaCrm.PoolInterimaires.ajouter(
                 new EmployeInterim("Mme",
                     "Bento",
                     "Koyo",
@@ -382,15 +390,15 @@ namespace TwaCRM{
                     )
                 );
 
-            PoolInterimaires.sauvegarderXml(nomFichier);
+            TwaCrm.PoolInterimaires.sauvegarderXml(nomFichier);
         }
 
         /**
          * La méthode firstInitPoolMissions permet de créer 6 missions
          */
-	    public void firstInitPoolMissions(String nomFichier)
+        public static void firstInitPoolMissions(String nomFichier)
 	    {
-            PoolMissions.ajouter(
+            TwaCrm.PoolMissions.ajouter(
                 new Mission(
                     new DateTime(2015, 01, 18),
                     new DateTime(2015, 02, 18),
@@ -402,7 +410,7 @@ namespace TwaCRM{
                     )
                 );
 
-            PoolMissions.ajouter(
+            TwaCrm.PoolMissions.ajouter(
                 new Mission(
                     new DateTime(2015, 05, 18),
                     new DateTime(2015, 08, 18),
@@ -414,7 +422,7 @@ namespace TwaCRM{
                     )
                 );
 
-            PoolMissions.ajouter(
+            TwaCrm.PoolMissions.ajouter(
                 new Mission(
                     new DateTime(2015, 01, 1),
                     new DateTime(2015, 01, 31),
@@ -426,7 +434,7 @@ namespace TwaCRM{
                     )
                 );
 
-            PoolMissions.ajouter(
+            TwaCrm.PoolMissions.ajouter(
                 new Mission(
                     new DateTime(2015, 06, 10),
                     new DateTime(2015, 09, 10),
@@ -438,7 +446,7 @@ namespace TwaCRM{
                     )
                 );
 
-            PoolMissions.ajouter(
+            TwaCrm.PoolMissions.ajouter(
                 new Mission(
                     new DateTime(2015, 03, 1),
                     new DateTime(2015, 06, 30),
@@ -450,7 +458,7 @@ namespace TwaCRM{
                     )
                 );
 
-            PoolMissions.ajouter(
+            TwaCrm.PoolMissions.ajouter(
                 new Mission(
                     new DateTime(2015, 05, 18),
                     new DateTime(2015, 08, 18),
@@ -462,7 +470,7 @@ namespace TwaCRM{
                     )
                 );
 
-            PoolMissions.ajouter(
+            TwaCrm.PoolMissions.ajouter(
                 new Mission(
                     new DateTime(2015, 05, 18),
                     new DateTime(2015, 08, 18),
@@ -474,7 +482,7 @@ namespace TwaCRM{
                     )
                 );
 
-            PoolMissions.sauvegarderXml(@"PoolMissions.xml");
+            TwaCrm.PoolMissions.sauvegarderXml(@"PoolMissions.xml");
 	    }
 	}
 }

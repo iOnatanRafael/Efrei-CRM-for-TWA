@@ -14,14 +14,12 @@ namespace TwaCRM
         [STAThread]
         static void Main()
         {
-            /* DESACTIVATION TEMPORAIRE */
-            /*
+            // Déclaration d'une instance de la classe TwaCRM afin d'initialiser
+            TwaCrm twaCrm = new TwaCrm();
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
-            */
-
-            TwaCRM twaCrm = new TwaCRM();
+            Application.Run(new MainForm());
         }
     }
 }
