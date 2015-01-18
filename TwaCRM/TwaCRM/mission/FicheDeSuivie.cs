@@ -15,18 +15,35 @@ namespace TwaCRM.mission{
          */
         public FicheDeSuivie()
         {
+            _uniqueId = _counter;
+            _counter++;
         }
 
 		/**
 		 * Constructeur
 		 */
 		public FicheDeSuivie(Mission mission, Double avancement, Double risqueDeRetard, DateTime date)
-		{
+        {
+            _uniqueId = _counter;
+            _counter++;
+
 		    Mission = mission;
 		    Avancement = avancement;
 		    RisqueDeRetard = risqueDeRetard;
 		    Date = date;
 		}
+
+        private static int _counter = 0;
+
+        /**
+         * Contient l'id unique
+         */
+        private int _uniqueId;
+        public int UniqueId
+        {
+            get { return _uniqueId; }
+            set { _uniqueId = value; }
+        }
 
 		/**
 		 * Contient la mission concernée par la fiche de suivie

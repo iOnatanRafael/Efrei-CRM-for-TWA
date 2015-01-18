@@ -16,6 +16,9 @@ namespace TwaCRM.entreprise{
          */
         public Entreprise()
         {
+            _uniqueId = _counter;
+            _counter++;
+
             Nom = null;
             Adresse = null;
             Siret = -1;
@@ -26,12 +29,27 @@ namespace TwaCRM.entreprise{
 		 * Constructeur
 		 */
 		public Entreprise(String nom, Adresse adresse, long siret, Contact contact)
-		{
+        {
+            _uniqueId = _counter;
+            _counter++;
+
 		    Nom = nom;
 		    Adresse = adresse;
 		    Siret = siret;
 		    Contact = contact;
 		}
+
+        private static int _counter = 0;
+
+        /**
+         * Contient l'id unique
+         */
+        private int _uniqueId;
+        public int UniqueId
+        {
+            get { return _uniqueId; }
+            set { _uniqueId = value; }
+        }
 
 		/**
 		 * Contient le nom de l'entreprise
@@ -44,7 +62,7 @@ namespace TwaCRM.entreprise{
 	    }
 
 		/**
-		 * 
+		 * Contient l'adresse où se trouve l'entreprise
 		 */
         private Adresse _adresse;
         public Adresse Adresse
@@ -54,7 +72,7 @@ namespace TwaCRM.entreprise{
         }
 
 		/**
-		 * 
+		 * Contient le numéro de siret de l'entreprise
 		 */
         private long _siret;
         public long Siret
@@ -75,7 +93,7 @@ namespace TwaCRM.entreprise{
         }
 
 		/**
-		 * 
+		 * Contient le contact de l'entreprise
 		 */
         private Contact _contact;
         public Contact Contact

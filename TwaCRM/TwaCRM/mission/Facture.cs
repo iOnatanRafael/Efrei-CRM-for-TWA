@@ -15,15 +15,32 @@ namespace TwaCRM.mission{
          */
         public Facture()
         {
+            _uniqueId = _counter;
+            _counter++;
         }
 
 		/**
 		 * Constructeur
 		 */
 		public Facture(Mission mission)
-		{
+        {
+            _uniqueId = _counter;
+            _counter++;
+
 		    Mission = mission;
 		}
+
+        private static int _counter = 0;
+
+        /**
+         * Contient l'id unique
+         */
+        private int _uniqueId;
+        public int UniqueId
+        {
+            get { return _uniqueId; }
+            set { _uniqueId = value; }
+        }
 
 		/**
 		 * Contient la mission concernée par la facture

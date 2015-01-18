@@ -16,6 +16,8 @@ namespace TwaCRM.interimaire{
          */
         public EmployeInterim()
         {
+            _uniqueId = _counter;
+            _counter++;
         }
 
 		/**
@@ -23,11 +25,26 @@ namespace TwaCRM.interimaire{
 		 */
         public EmployeInterim(String civilite, String nom, String prenom, String telephone, List<Competence> competences, Double tarifJournalierFixe, Double tarifJournalierVariable)
             : base(civilite, nom, prenom, telephone)
-		{
+        {
+            _uniqueId = _counter;
+            _counter++;
+
 		    Competences = competences;
 		    TarifJournalierFixe = tarifJournalierFixe;
 		    TarifJournalierVariable = tarifJournalierVariable;
-		}
+        }
+
+        private static int _counter = 0;
+
+        /**
+         * Contient l'id unique
+         */
+        private int _uniqueId;
+        public int UniqueId
+        {
+            get { return _uniqueId; }
+            set { _uniqueId = value; }
+        }
 
 		/**
 		 * Contient la liste des compétences de l'intérimaire

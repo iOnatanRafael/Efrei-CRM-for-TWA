@@ -12,11 +12,11 @@ namespace TwaCRM.pool{
 	 * La classe PoolEntreprisesClientes modélise la liste des entreprises clientes
 	 */
 	public class PoolEntreprisesClientes {
-        
-		/**
-		 * Constructeur
-		 */
-		public PoolEntreprisesClientes() {
+
+        /**
+         * Constructeur par défaut
+         */
+        public PoolEntreprisesClientes() {
             EntreprisesClientes = new List<Entreprise>();
 		}
 
@@ -33,25 +33,38 @@ namespace TwaCRM.pool{
 
 
 		/**
-		 * @return la liste des entreprises clientes
+		 * @return la liste de toutes les entreprises clientes
 		 */
         public List<Entreprise> getPool()
         {
 			return EntreprisesClientes;
 		}
 
-		/**
-		 * @param nom 
-		 * @return la liste des entreprises portant le nom "nom"
-		 */
-        public List<Entreprise> chercher(string nom)
+        /**
+         * @param searchedWord
+         * @return la liste des entreprises dont un critère contient `searchedWord`
+         */
+        public List<Entreprise> chercher(string searchedWord)
         {
-			// TODO implement here
-			return null;
+            IEnumerable<Entreprise> searchQuery =
+                from entreprise in EntreprisesClientes
+                where entreprise.Nom.Contains(searchedWord) ||
+                        entreprise.Adresse.Voie.Contains(searchedWord) ||
+                        entreprise.Adresse.CodePostal.Contains(searchedWord) ||
+                        entreprise.Adresse.Ville.Contains(searchedWord) ||
+                        entreprise.Adresse.Pays.Contains(searchedWord) ||
+                        entreprise.Siret.ToString().Contains(searchedWord) ||
+                        entreprise.Contact.Nom.Contains(searchedWord) ||
+                        entreprise.Contact.Prenom.Contains(searchedWord) ||
+                        entreprise.Contact.Telephone.Contains(searchedWord) ||
+                        entreprise.Contact.Role.Contains(searchedWord)
+                select entreprise;
+
+			return searchQuery.ToList();
 		}
 
         /**
-         * @param Entreprise 
+         * @param entreprise 
          * @return true si l'ajout a réussi, sinon false
          */
         public bool ajouter(Entreprise entreprise)
@@ -65,19 +78,10 @@ namespace TwaCRM.pool{
             return false;
 		}
 
-		/**
-		 * @param nom 
-		 * @return true si la suppression a réussi, sinon false
-		 */
-		public bool supprimer(string nom) {
-			// TODO implement here
-            return false;
-		}
-
         /**
          * La méthode sauvegarderXml permet de sauvegarder le pool d'entreprises clientes dans un fichier XML
          */
-        public void sauvegarderXml(String filename)
+        public void sauvegarderXml(String nomFichier)
 	    {
 	        try
 	        {
@@ -91,7 +95,7 @@ namespace TwaCRM.pool{
 	                Directory.CreateDirectory(PoolsXmlDir);
 	            }
 
-                using (TextWriter writer = new StreamWriter(PoolsXmlDir + filename))
+                using (TextWriter writer = new StreamWriter(PoolsXmlDir + nomFichier))
 	            {
 	                serializer.Serialize(writer, this.EntreprisesClientes);
 	            }
@@ -105,7 +109,7 @@ namespace TwaCRM.pool{
         /**
          * La méthode chargerXml permet de charger le pool d'entreprises clientes à partir d'un fichier XML
          */
-	    public void chargerXml(String filename)
+        public void chargerXml(String nomFichier)
 	    {
 	        try
 	        {
@@ -116,7 +120,7 @@ namespace TwaCRM.pool{
 
                 if (Directory.Exists(PoolsXmlDir))
                 {
-                    TextReader reader = new StreamReader(PoolsXmlDir + filename);
+                    TextReader reader = new StreamReader(PoolsXmlDir + nomFichier);
 
                     Object obj = deserializer.Deserialize(reader);
                     EntreprisesClientes = (List<Entreprise>)obj;

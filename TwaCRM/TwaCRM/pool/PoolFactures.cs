@@ -6,31 +6,36 @@ using System.Text;
 using TwaCRM.mission;
 
 namespace TwaCRM.pool{
-	/**
-	 * 
-	 */
-	public class PoolFactures {
+    /**
+     * La classe PoolFactures modélise la liste des factures
+     */
+    public class PoolFactures {
 
 		/**
-		 * 
+		 * Constructeur par défaut
 		 */
 		public PoolFactures() {
+            Factures = new List<Facture>();
 		}
 
 		/**
-		 * 
+		 * Contient la liste des factures
 		 */
-        private List<Facture> factures;
+        private List<Facture> _factures;
+        public List<Facture> Factures
+        {
+            get { return _factures; }
+            set { _factures = value; }
+        }
 
 
 
 		/**
-		 * @return
+		 * @return la liste de toutes les factures
 		 */
         public List<Facture> getPool()
         {
-			// TODO implement here
-			return null;
+			return Factures;
 		}
 
 	}

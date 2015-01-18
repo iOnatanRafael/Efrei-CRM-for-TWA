@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using TwaCRM.entreprise;
+using TwaCRM.interimaire;
+using TwaCRM.mission;
 using TwaCRM.pool;
 
 namespace TwaCRM{
@@ -17,21 +19,33 @@ namespace TwaCRM{
 		 */
 		public TwaCRM() {
             PoolEntreprisesClientes = new PoolEntreprisesClientes();
+            PoolInterimaires = new PoolInterimaires();
+            PoolMissions = new PoolMissions();
 
-            Console.WriteLine("[DEBUT] Liste des entreprises clientes");
-            Console.WriteLine(PoolEntreprisesClientes.EntreprisesClientes.Count);
-		    Console.WriteLine("Ajout d'une entreprise");
-
-            //this.firstInitPoolEntreprisesClientes();
             PoolEntreprisesClientes.chargerXml(@"PoolEntreprisesClientes.xml");
+            PoolInterimaires.chargerXml(@"PoolInterimaires.xml");
+            PoolMissions.chargerXml(@"PoolMissions.xml");
 
-            foreach (var entreprise in PoolEntreprisesClientes.getPool())
+		    Console.WriteLine(PoolMissions.ajouter(
+                new Mission(
+                    new DateTime(2015, 04, 18),
+                    new DateTime(2015, 09, 18),
+                    "Cacher des pièces",
+                    PoolEntreprisesClientes.EntreprisesClientes[9],
+                    PoolInterimaires.Interimaires[1]
+                    )
+		        ));
+
+            //Console.WriteLine(PoolMissions.Missions[6].DateDebut.CompareTo(PoolMissions.Missions[7].DateDebut));
+            //Console.WriteLine(PoolMissions.Missions[6].DateFin.CompareTo(PoolMissions.Missions[7].DateFin));
+
+		    int cpt = 0;
+            foreach (Mission mission in PoolMissions.getPool())
 		    {
-		        Console.WriteLine(entreprise);
+                Console.WriteLine(cpt.ToString() + ". " + mission);
+		        cpt++;
 		    }
-            Console.WriteLine("[FIN] Liste des entreprises clientes");
 
-            
 		}
 
 		/**
@@ -85,11 +99,20 @@ namespace TwaCRM{
         }
 
 
+        /**
+         * La méthode firstInit permet de peupler la base de données de l'application
+         */
+        public void firstInit()
+	    {
+	        firstInitPoolEntreprisesClientes(@"PoolEntreprisesClientes.xml");
+            firstInitPoolInterimaires(@"PoolInterimaires.xml");
+            firstInitPoolMissions(@"PoolMissions.xml");
+	    }
 
         /**
          * La méthode firstInitPoolEntreprises permet de créer 10 entreprises
          */
-        public void firstInitPoolEntreprisesClientes()
+        public void firstInitPoolEntreprisesClientes(String nomFichier)
         {
             PoolEntreprisesClientes.ajouter(
                 new Entreprise("Baidu",
@@ -170,6 +193,315 @@ namespace TwaCRM{
                     new Contact("M", "Zlatan", "Ibrahimovic", "0828663663", "Dieu")
                     )
                 );
+
+            PoolEntreprisesClientes.sauvegarderXml(nomFichier);
         }
+
+        /**
+         * La méthode firstInitPoolInterimaires permet de créer 15 intérimaires
+         */
+        public void firstInitPoolInterimaires(String nomFichier)
+        {
+            PoolInterimaires.ajouter(
+                new EmployeInterim("M",
+                    "Atsuda",
+                    "Konaté",
+                    "0636489658",
+                    new List<Competence>()
+                    {
+                        new Competence("Informatique", "C#"),
+                        new Competence("Cuisine", "Japonaise")
+                    },
+                    25.0,
+                    0.0
+                    )
+                );
+
+            PoolInterimaires.ajouter(
+                new EmployeInterim("M",
+                    "Aubameyang",
+                    "Pierre-Emerick",
+                    "0625153565",
+                    new List<Competence>()
+                    {
+                        new Competence("Sport", "Football"),
+                        new Competence("Sport", "Athletisme"),
+                        new Competence("Coiffure", "Tendance")
+                    },
+                    0.0,
+                    2.0
+                    )
+                );
+
+            PoolInterimaires.ajouter(
+                new EmployeInterim("M",
+                    "Sarkozy",
+                    "Nicolas",
+                    "0825653515",
+                    new List<Competence>()
+                    {
+                        new Competence("Politique", "Convaincre"),
+                        new Competence("Sport", "Jogging"),
+                        new Competence("Communication", "Gesture")
+                    },
+                    0.0,
+                    80.0
+                    )
+                );
+
+            PoolInterimaires.ajouter(
+                new EmployeInterim("M",
+                    "Jacob",
+                    "Pierre",
+                    "0798562312",
+                    new List<Competence>()
+                    {
+                        new Competence("Bureautique", "Microsoft Word")
+                    },
+                    0.0,
+                    0.05
+                    )
+                );
+
+            PoolInterimaires.ajouter(
+                new EmployeInterim("Mme",
+                    "Kardashian",
+                    "Kim",
+                    "0878985868",
+                    new List<Competence>(),
+                    0.0,
+                    50.0
+                    )
+                );
+
+            PoolInterimaires.ajouter(
+                new EmployeInterim("Mlle",
+                    "Frantz",
+                    "Vanessa",
+                    "0626366898",
+                    new List<Competence>()
+                    {
+                        new Competence("Photographie", "Selfie"),
+                        new Competence("Photographie", "Mirroir")
+                    },
+                    10.0,
+                    0.0
+                    )
+                );
+
+            PoolInterimaires.ajouter(
+                new EmployeInterim("M",
+                    "Big Ali",
+                    "Amine",
+                    "0645555636",
+                    new List<Competence>()
+                    {
+                        new Competence("Musique", "Rap"),
+                        new Competence("Marketing", "Bling bling")
+                    },
+                    0.0,
+                    25.5
+                    )
+                );
+
+            PoolInterimaires.ajouter(
+                new EmployeInterim("M",
+                    "Jobs",
+                    "Steve",
+                    "0858484848",
+                    new List<Competence>()
+                    {
+                        new Competence("Général", "Vision"),
+                        new Competence("Marketing", "Simplicité"),
+                        new Competence("Gestion", "Direction d'Entreprise")
+                    },
+                    0.0,
+                    100.0
+                    )
+                );
+
+            /***/
+
+            PoolInterimaires.ajouter(
+                new EmployeInterim("Mlle",
+                    "Gorz",
+                    "Gabrielle",
+                    "0632124565",
+                    new List<Competence>()
+                    {
+                        new Competence("Sport", "Football"),
+                        new Competence("Sport", "Athletisme")
+                    },
+                    20.0,
+                    0.0
+                    )
+                );
+
+            PoolInterimaires.ajouter(
+                new EmployeInterim("M",
+                    "Dubosc",
+                    "Franck",
+                    "0696197532",
+                    new List<Competence>()
+                    {
+                        new Competence("Télévision", "Comédie")
+                    },
+                    0.0,
+                    20.3
+                    )
+                );
+
+            PoolInterimaires.ajouter(
+                new EmployeInterim("M",
+                    "Riolo",
+                    "Daniel",
+                    "0625153565",
+                    new List<Competence>(),
+                    0.0,
+                    15.0
+                    )
+                );
+
+            PoolInterimaires.ajouter(
+                new EmployeInterim("M",
+                    "Herbunot",
+                    "Killian",
+                    "0660521235",
+                    new List<Competence>()
+                    {
+                        new Competence("Sport", "Handball"),
+                        new Competence("Danse", "Popping"),
+                        new Competence("Informatique", "C#")
+                    },
+                    18.0,
+                    0.0
+                    )
+                );
+
+            PoolInterimaires.ajouter(
+                new EmployeInterim("M",
+                    "Bailley",
+                    "Mike",
+                    "0656564585",
+                    new List<Competence>()
+                    {
+                        new Competence("Danse", "Classique"),
+                        new Competence("Musique", "Pop")
+                    },
+                    12.6,
+                    0.0
+                    )
+                );
+
+            PoolInterimaires.ajouter(
+                new EmployeInterim("Mme",
+                    "Sheyti",
+                    "Carole",
+                    "0851236578",
+                    new List<Competence>()
+                    {
+                        new Competence("Cuisine", "Antillaise"),
+                        new Competence("Cuisine", "Indienne"),
+                        new Competence("Cuisine", "Asiatique")
+                    },
+                    0.0,
+                    10.0
+                    )
+                );
+
+            PoolInterimaires.ajouter(
+                new EmployeInterim("Mme",
+                    "Bento",
+                    "Koyo",
+                    "0698654521",
+                    new List<Competence>()
+                    {
+                        new Competence("Langue", "Japonais")
+                    },
+                    0.0,
+                    5.0
+                    )
+                );
+
+            PoolInterimaires.sauvegarderXml(nomFichier);
+        }
+
+        /**
+         * La méthode firstInitPoolMissions permet de créer 6 missions
+         */
+	    public void firstInitPoolMissions(String nomFichier)
+	    {
+            PoolMissions.ajouter(
+                new Mission(
+                    new DateTime(2015, 01, 18),
+                    new DateTime(2015, 02, 18),
+                    "Nettoyage des locaux",
+                    PoolEntreprisesClientes.EntreprisesClientes[2],
+                    PoolInterimaires.Interimaires[12]
+                    )
+                );
+
+            PoolMissions.ajouter(
+                new Mission(
+                    new DateTime(2015, 05, 18),
+                    new DateTime(2015, 08, 18),
+                    "Surveillance des locaux",
+                    PoolEntreprisesClientes.EntreprisesClientes[5],
+                    PoolInterimaires.Interimaires[3]
+                    )
+                );
+
+            PoolMissions.ajouter(
+                new Mission(
+                    new DateTime(2015, 01, 1),
+                    new DateTime(2015, 01, 31),
+                    "Trier les dossiers",
+                    PoolEntreprisesClientes.EntreprisesClientes[1],
+                    PoolInterimaires.Interimaires[6]
+                    )
+                );
+
+            PoolMissions.ajouter(
+                new Mission(
+                    new DateTime(2015, 06, 10),
+                    new DateTime(2015, 09, 10),
+                    "Prospecter pour le nouveau produit",
+                    PoolEntreprisesClientes.EntreprisesClientes[8],
+                    PoolInterimaires.Interimaires[10]
+                    )
+                );
+
+            PoolMissions.ajouter(
+                new Mission(
+                    new DateTime(2015, 03, 1),
+                    new DateTime(2015, 06, 30),
+                    "Support téléphonique",
+                    PoolEntreprisesClientes.EntreprisesClientes[6],
+                    PoolInterimaires.Interimaires[7]
+                    )
+                );
+
+            PoolMissions.ajouter(
+                new Mission(
+                    new DateTime(2015, 05, 18),
+                    new DateTime(2015, 08, 18),
+                    "Gestion du site internet",
+                    PoolEntreprisesClientes.EntreprisesClientes[4],
+                    PoolInterimaires.Interimaires[8]
+                    )
+                );
+
+            PoolMissions.ajouter(
+                new Mission(
+                    new DateTime(2015, 05, 18),
+                    new DateTime(2015, 08, 18),
+                    "Correction de la rédaction",
+                    PoolEntreprisesClientes.EntreprisesClientes[3],
+                    PoolInterimaires.Interimaires[1]
+                    )
+                );
+
+            PoolMissions.sauvegarderXml(@"PoolMissions.xml");
+	    }
 	}
 }

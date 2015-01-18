@@ -1,6 +1,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using TwaCRM.entreprise;
@@ -17,6 +18,8 @@ namespace TwaCRM.mission{
          */
         public Mission()
         {
+            _uniqueId = _counter;
+            _counter++;
         }
 
 		/**
@@ -24,12 +27,27 @@ namespace TwaCRM.mission{
 		 */
 		public Mission(DateTime dateDebut, DateTime dateFin, String tache, Entreprise entreprise, EmployeInterim interimaire)
 		{
+            _uniqueId = _counter;
+            _counter++;
+
 		    DateDebut = dateDebut;
 		    DateFin = dateFin;
 		    Tache = tache;
 		    Entreprise = entreprise;
 		    EmployeInterim = interimaire;
 		}
+
+        private static int _counter = 0;
+
+        /**
+         * Contient l'id unique
+         */
+	    private int _uniqueId;
+        public int UniqueId
+        {
+            get { return _uniqueId; }
+            set { _uniqueId = value; }
+        }
 
 		/**
 		 * Contient la date de début de la mission
@@ -80,7 +98,6 @@ namespace TwaCRM.mission{
             get { return _employeInterim; }
             set { _employeInterim = value; }
         }
-
 
         /**
          * Surcharge de l'opérateur ToString
