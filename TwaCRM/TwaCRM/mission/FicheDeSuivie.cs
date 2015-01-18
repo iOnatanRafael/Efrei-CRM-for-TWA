@@ -23,12 +23,11 @@ namespace TwaCRM.mission{
 		/**
 		 * Constructeur
 		 */
-		public FicheDeSuivie(Mission mission, Double avancement, Double risqueDeRetard, DateTime date)
+		public FicheDeSuivie(Double avancement, Double risqueDeRetard, DateTime date)
         {
             _uniqueId = _counter;
             _counter++;
 
-		    Mission = mission;
 		    Avancement = avancement;
 		    RisqueDeRetard = risqueDeRetard;
 		    Date = date;
@@ -47,16 +46,6 @@ namespace TwaCRM.mission{
             get { return _uniqueId; }
             set { _uniqueId = value; }
         }
-
-		/**
-		 * Contient la mission concernée par la fiche de suivie
-		 */
-		private Mission _mission;
-	    public Mission Mission
-	    {
-            get { return _mission; }
-            set { _mission = value; }
-	    }
 
 		/**
 		 * Contient le pourcentage d'avancement
@@ -101,10 +90,7 @@ namespace TwaCRM.mission{
          */
         public override string ToString()
         {
-            return "Mission : " + Mission.Tache +
-                " | Entreprise : " + Mission.Entreprise.Nom +
-                " | Interimaire : " + Mission.EmployeInterim.Civilite + " " + Mission.EmployeInterim.Prenom + " " + Mission.EmployeInterim.Nom +
-                " | Avancement : " + Avancement + "%" +
+            return "Avancement : " + Avancement + "%" +
                 " | Risque de retard : " + RisqueDeRetard + "%" +
                 " | Soumis le : " + Date;
         }

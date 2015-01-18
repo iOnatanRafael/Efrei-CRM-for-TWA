@@ -26,7 +26,7 @@ namespace TwaCRM.mission{
 		/**
 		 * Constructeur
 		 */
-		public Mission(DateTime dateDebut, DateTime dateFin, String tache, Entreprise entreprise, EmployeInterim interimaire)
+		public Mission(DateTime dateDebut, DateTime dateFin, String tache, Entreprise entreprise, EmployeInterim interimaire, FicheDeSuivie ficheDeSuivie, Facture facture)
 		{
             _uniqueId = _counter;
             _counter++;
@@ -36,6 +36,8 @@ namespace TwaCRM.mission{
 		    Tache = tache;
 		    Entreprise = entreprise;
 		    EmployeInterim = interimaire;
+		    FicheDeSuivie = ficheDeSuivie;
+		    Facture = facture;
 		}
 
         private static int _counter = 0;
@@ -100,6 +102,26 @@ namespace TwaCRM.mission{
         {
             get { return _employeInterim; }
             set { _employeInterim = value; }
+        }
+
+        /**
+         * Contient la facture de cette mission
+         */
+        private Facture _facture;
+        public Facture Facture
+        {
+            get { return _facture; }
+            set { _facture = value; }
+        }
+
+        /**
+         * Contient la fiche de suivie de cette mission
+         */
+        private FicheDeSuivie _ficheDeSuivie;
+        public FicheDeSuivie FicheDeSuivie
+        {
+            get { return _ficheDeSuivie; }
+            set { _ficheDeSuivie = value; }
         }
 
         /**

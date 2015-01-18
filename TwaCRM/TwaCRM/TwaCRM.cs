@@ -22,12 +22,14 @@ namespace TwaCRM{
             PoolInterimaires = new PoolInterimaires();
             PoolMissions = new PoolMissions();
 
+            firstInit();
+
             PoolEntreprisesClientes.chargerXml(@"PoolEntreprisesClientes.xml");
             PoolInterimaires.chargerXml(@"PoolInterimaires.xml");
             PoolMissions.chargerXml(@"PoolMissions.xml");
 
 		    int cpt = 0;
-            foreach (Mission mission in PoolMissions.getPool())
+            foreach (Mission mission in PoolMissions.getPoolParEntreprise(PoolEntreprisesClientes.EntreprisesClientes[0]))
 		    {
                 Console.WriteLine(cpt.ToString() + ". " + mission);
 		        cpt++;
@@ -63,26 +65,6 @@ namespace TwaCRM{
         {
             get { return _poolMissions; }
             set { _poolMissions = value; }
-        }
-
-		/**
-		 * Contient la liste des factures
-		 */
-        private PoolFactures _poolFactures;
-        public PoolFactures PoolFactures
-        {
-            get { return _poolFactures; }
-            set { _poolFactures = value; }
-        }
-
-		/**
-		 * Contient la liste des fiches de suivie
-		 */
-        private PoolFichesDeSuivie _poolFichesDeSuivie;
-        public PoolFichesDeSuivie PoolFichesDeSuivie
-        {
-            get { return _poolFichesDeSuivie; }
-            set { _poolFichesDeSuivie = value; }
         }
 
 
@@ -424,7 +406,9 @@ namespace TwaCRM{
                     new DateTime(2015, 02, 18),
                     "Nettoyage des locaux",
                     PoolEntreprisesClientes.EntreprisesClientes[0],
-                    PoolInterimaires.Interimaires[0]
+                    PoolInterimaires.Interimaires[0],
+                    new FicheDeSuivie(0.0, 0.0, new DateTime()),
+                    new Facture()
                     )
                 );
 
@@ -434,7 +418,9 @@ namespace TwaCRM{
                     new DateTime(2015, 08, 18),
                     "Surveillance des locaux",
                     PoolEntreprisesClientes.EntreprisesClientes[1],
-                    PoolInterimaires.Interimaires[1]
+                    PoolInterimaires.Interimaires[1],
+                    new FicheDeSuivie(0.0, 0.0, new DateTime()),
+                    new Facture()
                     )
                 );
 
@@ -444,7 +430,9 @@ namespace TwaCRM{
                     new DateTime(2015, 01, 31),
                     "Trier les dossiers",
                     PoolEntreprisesClientes.EntreprisesClientes[2],
-                    PoolInterimaires.Interimaires[2]
+                    PoolInterimaires.Interimaires[2],
+                    new FicheDeSuivie(0.0, 0.0, new DateTime()),
+                    new Facture()
                     )
                 );
 
@@ -453,8 +441,10 @@ namespace TwaCRM{
                     new DateTime(2015, 06, 10),
                     new DateTime(2015, 09, 10),
                     "Prospecter pour le nouveau produit",
-                    PoolEntreprisesClientes.EntreprisesClientes[3],
-                    PoolInterimaires.Interimaires[3]
+                    PoolEntreprisesClientes.EntreprisesClientes[0],
+                    PoolInterimaires.Interimaires[3],
+                    new FicheDeSuivie(0.0, 0.0, new DateTime()),
+                    new Facture()
                     )
                 );
 
@@ -464,7 +454,9 @@ namespace TwaCRM{
                     new DateTime(2015, 06, 30),
                     "Support téléphonique",
                     PoolEntreprisesClientes.EntreprisesClientes[4],
-                    PoolInterimaires.Interimaires[4]
+                    PoolInterimaires.Interimaires[4],
+                    new FicheDeSuivie(0.0, 0.0, new DateTime()),
+                    new Facture()
                     )
                 );
 
@@ -474,7 +466,9 @@ namespace TwaCRM{
                     new DateTime(2015, 08, 18),
                     "Gestion du site internet",
                     PoolEntreprisesClientes.EntreprisesClientes[5],
-                    PoolInterimaires.Interimaires[5]
+                    PoolInterimaires.Interimaires[5],
+                    new FicheDeSuivie(0.0, 0.0, new DateTime()),
+                    new Facture()
                     )
                 );
 
@@ -484,7 +478,9 @@ namespace TwaCRM{
                     new DateTime(2015, 08, 18),
                     "Correction de la rédaction",
                     PoolEntreprisesClientes.EntreprisesClientes[6],
-                    PoolInterimaires.Interimaires[6]
+                    PoolInterimaires.Interimaires[0],
+                    new FicheDeSuivie(0.0, 0.0, new DateTime()),
+                    new Facture()
                     )
                 );
 

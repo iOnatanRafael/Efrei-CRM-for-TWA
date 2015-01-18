@@ -70,6 +70,21 @@ namespace TwaCRM.pool{
 		}
 
         /**
+         * @param periodeDebut, periodeFin 
+         * @return la liste des missions associées à l'intérimaire `interimaire`
+         */
+        public List<Mission> getPoolParPeriode(DateTime periodeDebut, DateTime periodeFin)
+        {
+            IEnumerable<Mission> filteredQuery =
+                from mission in Missions
+                where mission.DateDebut.CompareTo(periodeDebut) >= 0 && mission.DateFin.CompareTo(periodeDebut) >= 0 &&
+                        mission.DateDebut.CompareTo(periodeFin) <= 0 && mission.DateFin.CompareTo(periodeFin) <= 0
+                select mission;
+
+            return filteredQuery.ToList();
+        }
+
+        /**
          * @param searchedWord 
          * @return la liste des missions dont un critère contient `searchedWord`
          */

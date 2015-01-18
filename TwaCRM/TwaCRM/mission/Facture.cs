@@ -23,12 +23,12 @@ namespace TwaCRM.mission{
 		/**
 		 * Constructeur
 		 */
-		public Facture(Mission mission)
+		public Facture(int prixTotal)
         {
             _uniqueId = _counter;
             _counter++;
 
-		    Mission = mission;
+		    PrixTotal = prixTotal;
 		}
 
         private static int _counter = 0;
@@ -46,13 +46,13 @@ namespace TwaCRM.mission{
         }
 
 		/**
-		 * Contient la mission concernée par la facture
+		 * Contient le prix total de la facture
 		 */
-		private Mission _mission;
-	    public Mission Mission
+		private int _prixTotal;
+        public int PrixTotal
 	    {
-            get { return _mission; }
-            set { _mission = value; }
+            get { return _prixTotal; }
+            set { _prixTotal = value; }
 	    }
 
         /**
@@ -60,9 +60,7 @@ namespace TwaCRM.mission{
          */
         public override string ToString()
         {
-            return Mission.ToString() +
-                " | Tarif journalier fixe : " + Mission.EmployeInterim.TarifJournalierFixe +
-                " | Tarif journalier variable : " + Mission.EmployeInterim.TarifJournalierVariable;
+            return "Prix total : " + PrixTotal;
         }
 	}
 }

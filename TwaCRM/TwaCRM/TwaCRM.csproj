@@ -60,8 +60,6 @@
     <Compile Include="mission\Mission.cs" />
     <Compile Include="Personne.cs" />
     <Compile Include="pool\PoolEntreprisesClientes.cs" />
-    <Compile Include="pool\PoolFactures.cs" />
-    <Compile Include="pool\PoolFichesDeSuivie.cs" />
     <Compile Include="pool\PoolInterimaires.cs" />
     <Compile Include="pool\PoolMissions.cs" />
     <Compile Include="MainClass.cs" />
