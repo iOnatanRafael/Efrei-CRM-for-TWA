@@ -26,19 +26,6 @@ namespace TwaCRM{
             PoolInterimaires.chargerXml(@"PoolInterimaires.xml");
             PoolMissions.chargerXml(@"PoolMissions.xml");
 
-		    Console.WriteLine(PoolMissions.ajouter(
-                new Mission(
-                    new DateTime(2015, 04, 18),
-                    new DateTime(2015, 09, 18),
-                    "Cacher des pièces",
-                    PoolEntreprisesClientes.EntreprisesClientes[9],
-                    PoolInterimaires.Interimaires[1]
-                    )
-		        ));
-
-            //Console.WriteLine(PoolMissions.Missions[6].DateDebut.CompareTo(PoolMissions.Missions[7].DateDebut));
-            //Console.WriteLine(PoolMissions.Missions[6].DateFin.CompareTo(PoolMissions.Missions[7].DateFin));
-
 		    int cpt = 0;
             foreach (Mission mission in PoolMissions.getPool())
 		    {

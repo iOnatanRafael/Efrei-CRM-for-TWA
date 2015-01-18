@@ -109,7 +109,9 @@ namespace TwaCRM.pool{
                     from mission in Missions
                     where mission.EmployeInterim.UniqueId == missionAAjouter.EmployeInterim.UniqueId &&
                             (mission.DateDebut.CompareTo(missionAAjouter.DateDebut) <= 0 && mission.DateFin.CompareTo(missionAAjouter.DateDebut) >= 0) ||
-                            (mission.DateDebut.CompareTo(missionAAjouter.DateFin) <= 0 && mission.DateFin.CompareTo(missionAAjouter.DateFin) >= 0)
+                            (mission.DateDebut.CompareTo(missionAAjouter.DateFin) <= 0 && mission.DateFin.CompareTo(missionAAjouter.DateFin) >= 0) ||
+                            (missionAAjouter.DateDebut.CompareTo(mission.DateDebut) <= 0 && missionAAjouter.DateFin.CompareTo(mission.DateDebut) >= 0) ||
+                            (missionAAjouter.DateDebut.CompareTo(mission.DateFin) <= 0 && missionAAjouter.DateFin.CompareTo(mission.DateFin) >= 0)
                     select mission;
 
                 if (!conflictQuery.Any())
