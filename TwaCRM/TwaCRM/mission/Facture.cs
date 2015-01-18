@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Xml.Serialization;
 
 namespace TwaCRM.mission{
 	/**
@@ -36,6 +37,8 @@ namespace TwaCRM.mission{
          * Contient l'id unique
          */
         private int _uniqueId;
+
+        [XmlAttribute("id")]
         public int UniqueId
         {
             get { return _uniqueId; }

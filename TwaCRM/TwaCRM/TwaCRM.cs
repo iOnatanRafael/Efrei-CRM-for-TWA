@@ -423,8 +423,8 @@ namespace TwaCRM{
                     new DateTime(2015, 01, 18),
                     new DateTime(2015, 02, 18),
                     "Nettoyage des locaux",
-                    PoolEntreprisesClientes.EntreprisesClientes[2],
-                    PoolInterimaires.Interimaires[12]
+                    PoolEntreprisesClientes.EntreprisesClientes[0],
+                    PoolInterimaires.Interimaires[0]
                     )
                 );
 
@@ -433,8 +433,8 @@ namespace TwaCRM{
                     new DateTime(2015, 05, 18),
                     new DateTime(2015, 08, 18),
                     "Surveillance des locaux",
-                    PoolEntreprisesClientes.EntreprisesClientes[5],
-                    PoolInterimaires.Interimaires[3]
+                    PoolEntreprisesClientes.EntreprisesClientes[1],
+                    PoolInterimaires.Interimaires[1]
                     )
                 );
 
@@ -443,8 +443,8 @@ namespace TwaCRM{
                     new DateTime(2015, 01, 1),
                     new DateTime(2015, 01, 31),
                     "Trier les dossiers",
-                    PoolEntreprisesClientes.EntreprisesClientes[1],
-                    PoolInterimaires.Interimaires[6]
+                    PoolEntreprisesClientes.EntreprisesClientes[2],
+                    PoolInterimaires.Interimaires[2]
                     )
                 );
 
@@ -453,8 +453,8 @@ namespace TwaCRM{
                     new DateTime(2015, 06, 10),
                     new DateTime(2015, 09, 10),
                     "Prospecter pour le nouveau produit",
-                    PoolEntreprisesClientes.EntreprisesClientes[8],
-                    PoolInterimaires.Interimaires[10]
+                    PoolEntreprisesClientes.EntreprisesClientes[3],
+                    PoolInterimaires.Interimaires[3]
                     )
                 );
 
@@ -463,8 +463,8 @@ namespace TwaCRM{
                     new DateTime(2015, 03, 1),
                     new DateTime(2015, 06, 30),
                     "Support téléphonique",
-                    PoolEntreprisesClientes.EntreprisesClientes[6],
-                    PoolInterimaires.Interimaires[7]
+                    PoolEntreprisesClientes.EntreprisesClientes[4],
+                    PoolInterimaires.Interimaires[4]
                     )
                 );
 
@@ -473,8 +473,8 @@ namespace TwaCRM{
                     new DateTime(2015, 05, 18),
                     new DateTime(2015, 08, 18),
                     "Gestion du site internet",
-                    PoolEntreprisesClientes.EntreprisesClientes[4],
-                    PoolInterimaires.Interimaires[8]
+                    PoolEntreprisesClientes.EntreprisesClientes[5],
+                    PoolInterimaires.Interimaires[5]
                     )
                 );
 
@@ -483,8 +483,8 @@ namespace TwaCRM{
                     new DateTime(2015, 05, 18),
                     new DateTime(2015, 08, 18),
                     "Correction de la rédaction",
-                    PoolEntreprisesClientes.EntreprisesClientes[3],
-                    PoolInterimaires.Interimaires[1]
+                    PoolEntreprisesClientes.EntreprisesClientes[6],
+                    PoolInterimaires.Interimaires[6]
                     )
                 );
 

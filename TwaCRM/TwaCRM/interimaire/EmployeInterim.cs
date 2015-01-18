@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Text;
+using System.Xml.Serialization;
 
 namespace TwaCRM.interimaire{
 	/**
@@ -40,6 +41,8 @@ namespace TwaCRM.interimaire{
          * Contient l'id unique
          */
         private int _uniqueId;
+
+        [XmlAttribute("id")]
         public int UniqueId
         {
             get { return _uniqueId; }

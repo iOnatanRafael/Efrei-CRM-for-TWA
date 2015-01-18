@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Xml.Serialization;
 using TwaCRM.entreprise;
 using TwaCRM.interimaire;
 
@@ -42,7 +43,9 @@ namespace TwaCRM.mission{
         /**
          * Contient l'id unique
          */
-	    private int _uniqueId;
+        private int _uniqueId;
+
+        [XmlAttribute("id")]
         public int UniqueId
         {
             get { return _uniqueId; }

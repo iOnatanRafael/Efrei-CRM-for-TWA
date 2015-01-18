@@ -49,7 +49,7 @@ namespace TwaCRM.pool{
         {
             IEnumerable<Mission> filteredQuery =
                 from mission in Missions
-                where mission.Entreprise.Equals(entreprise)
+                where mission.Entreprise.UniqueId == entreprise.UniqueId
                 select mission;
 
 			return filteredQuery.ToList();
@@ -63,7 +63,7 @@ namespace TwaCRM.pool{
         {
             IEnumerable<Mission> filteredQuery =
                 from mission in Missions
-                where mission.EmployeInterim.Equals(interimaire)
+                where mission.EmployeInterim.UniqueId == interimaire.UniqueId
                 select mission;
 
             return filteredQuery.ToList();
@@ -105,13 +105,14 @@ namespace TwaCRM.pool{
             // Vérifier si la mission existe et est correcte (date début antérieure à date fin)
             if (missionAAjouter != null && missionAAjouter.DateDebut.CompareTo(missionAAjouter.DateFin) <= 0)
             {
+                // Vérifier s'il y a un conflit de dates
                 IEnumerable<Mission> conflictQuery =
                     from mission in Missions
                     where mission.EmployeInterim.UniqueId == missionAAjouter.EmployeInterim.UniqueId &&
-                            (mission.DateDebut.CompareTo(missionAAjouter.DateDebut) <= 0 && mission.DateFin.CompareTo(missionAAjouter.DateDebut) >= 0) ||
+                            ((mission.DateDebut.CompareTo(missionAAjouter.DateDebut) <= 0 && mission.DateFin.CompareTo(missionAAjouter.DateDebut) >= 0) ||
                             (mission.DateDebut.CompareTo(missionAAjouter.DateFin) <= 0 && mission.DateFin.CompareTo(missionAAjouter.DateFin) >= 0) ||
                             (missionAAjouter.DateDebut.CompareTo(mission.DateDebut) <= 0 && missionAAjouter.DateFin.CompareTo(mission.DateDebut) >= 0) ||
-                            (missionAAjouter.DateDebut.CompareTo(mission.DateFin) <= 0 && missionAAjouter.DateFin.CompareTo(mission.DateFin) >= 0)
+                            (missionAAjouter.DateDebut.CompareTo(mission.DateFin) <= 0 && missionAAjouter.DateFin.CompareTo(mission.DateFin) >= 0))
                     select mission;
 
                 if (!conflictQuery.Any())
